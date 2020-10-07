@@ -22,6 +22,7 @@ export default {
       const user = {
         name: dar.value
       }
+      dar.value = ''
       fetch('http://localhost:3000/user', {
         method: 'POST',
         headers: {
@@ -29,6 +30,7 @@ export default {
         },
         body: JSON.stringify(user)
       })
+      this.$emit('clickBTN')
     }
   }
 }
@@ -43,6 +45,10 @@ export default {
     font-size: 50px;
     margin-top: 2%;
     border-radius: 10%;
+    color: #483916;
+}
+.input:hover{
+  border-color: #246eb7;
 }
 .text{
   font-size: 100px;
@@ -51,6 +57,15 @@ export default {
 .but{
     font-size: 50px;
     margin-top: 3%;
+    background-color: #ffa377;
 }
-
+.but:hover{
+      background-color: #ffc6ab;
+}
+.reg{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 </style>
