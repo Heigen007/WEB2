@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <HelloWorld v-if="showSomething" @clickBTN="click"/>
-    <Users :messages = "usersList"/>
+    <Users />
     <MessageForm />
     <Messages :messages = "MessagesList" />
     <!-- v-show="REG" -->

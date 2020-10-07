@@ -1,5 +1,5 @@
 <template>
-<div class = "users">
+<div class = "usersList">
     <div v-for="(user, i) in users" :key="i">{{user}}</div>
 </div>
 
