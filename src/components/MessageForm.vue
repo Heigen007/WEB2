@@ -1,7 +1,7 @@
 <template>
 <div class = "MessageForm">
    <input class = "MsgText" placeholder="Введите сообщение:">
-   <img src="But.png" class = "MsgBut">
+   <img src="Sen.svg" class = "MsgBut">
 </div>
 
 </template>
