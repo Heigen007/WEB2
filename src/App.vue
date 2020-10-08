@@ -2,8 +2,8 @@
   <div class="home">
     <HelloWorld v-if="showSomething" @clickBTN="click"/>
     <Users :users = "UsersList" v-if="showUserList"/>
-    <Messages :messages = "MessagesList" v-if="showMessages"/>
-    <MessageForm v-if="showMsgForm"/>
+    <Messages :messages = "MessagesList" :user = "user" v-if="showMessages"/>
+    <MessageForm :user = "user" v-if="showMsgForm"/>
     <!-- v-show="REG" -->
   </div>
 </template>
@@ -37,22 +37,21 @@ export default {
     }
   },
   methods: {
-    click () {
+    click (a) {
       this.showSomething = false
       this.showUserList = true
       this.showMessages = true
       this.showMsgForm = true
+      this.user = a
     }
   },
   async beforeMount () {
     setInterval(async () => {
-      console.log('a')
       const response = await fetch(this.root)
       if (response.ok) {
         const data = await response.json()
         this.MessagesList = data.messages
         this.UsersList = data.users
-        console.log('2')
         console.log(data.users)
         console.log(data.messages)
       }

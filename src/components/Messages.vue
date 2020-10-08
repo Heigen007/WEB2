@@ -15,7 +15,8 @@
 export default {
   name: 'Messages',
   props: {
-    messages: Array
+    messages: Array,
+    user: String
   }
 }
 

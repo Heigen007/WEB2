@@ -3,7 +3,7 @@
   <div class = "text">Регистрация</div>
   <input type="text" id = 's' class = "input" autocomplete="off" placeholder="Логин:">
   <div class = "c"><button class = "but"  @click="click">Войти в чат</button></div>
-  <div class="mistake" v-if="showmi">Введите имя!</div>
+  <div class="mistake" v-if="showmi">Введите логин!</div>
 </div>
 
 </template>
@@ -36,7 +36,7 @@ export default {
           },
           body: JSON.stringify(user)
         })
-        this.$emit('clickBTN')
+        this.$emit('clickBTN', user.name)
         this.showmi = false
       } else {
         this.showmi = true
@@ -52,7 +52,7 @@ export default {
     border: 5px solid blue;
     width: 200px;
     height:50px;
-    font-size: 50px;
+    font-size: 40px;
     margin-top: 2%;
     border-radius: 10%;
     color: #483916;
