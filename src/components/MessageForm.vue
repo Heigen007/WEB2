@@ -1,7 +1,7 @@
 <template>
 <div class = "MessageForm">
    <input class = "MsgText" placeholder="Введите сообщение:">
-   <img src="Sen.svg" class = "MsgBut">
+   <img src="../assets\Sen.svg" class = "MsgBut"  @click="click">
 </div>
 
 </template>
@@ -12,6 +12,11 @@ export default {
   name: 'MessageForm',
   props: {
     msg: String
+  },
+  methods: {
+    // json-formatter
+    click () {
+    }
   }
 }
 

@@ -1,8 +1,9 @@
 <template>
 <div class = "reg">
   <div class = "text">Регистрация</div>
-  <input type="text" id = 's' class = "input">
-  <div><button class = "but" @click="click">Войти в чат</button></div>
+  <input type="text" id = 's' class = "input" autocomplete="off" placeholder="Логин:">
+  <div class = "c"><button class = "but"  @click="click">Войти в чат</button></div>
+  <div class="mistake" v-if="showmi">Введите имя!</div>
 </div>
 
 </template>
@@ -13,6 +14,11 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  data: function () {
+    return {
+      showmi: false
+    }
   },
   methods: {
     click () {
@@ -31,6 +37,9 @@ export default {
           body: JSON.stringify(user)
         })
         this.$emit('clickBTN')
+        this.showmi = false
+      } else {
+        this.showmi = true
       }
     }
   }
@@ -68,5 +77,11 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+.mistake{
+  font-size: 30px;
+  padding:10px;
+  margin-left: 10px;
+  color:#b11000;
 }
 </style>
