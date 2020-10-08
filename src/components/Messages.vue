@@ -1,7 +1,11 @@
 <template>
 <div class = "Messages">
-    <div class = "Msgname" v-for="(msg, i) in messages" :key="i">{{msg.name}}</div>
-    <div class = "Msgtext" v-for="(msg, i) in messages" :key="i">{{msg.text}}</div>
+  <ul id="v-for-object" class="demo">
+  <li v-for="(msg,i) in messages" :key="i">
+    <div class = "MsgName">{{msg.name}}:</div>
+    <div class = "MsgText">{{msg.text}}</div>
+    </li>
+</ul>
 </div>
 
 </template>
@@ -23,16 +27,20 @@ export default {
     height:450px;
     overflow-y: scroll;
     background-color: #ffaf76;
-    text-align: center;
     font-size: 30px;
     color:#3489d2;
 }
-.Msgname{
+.MsgName{
   margin-top:10px;
   font-size: 20px;
   color:#bf1a1a;
+  margin-left: -40px;
 }
-.Msgtext{
+.MsgText{
     margin-top:5px;
+}
+li{
+    margin-top:10px;
+    list-style-type: none;
 }
 </style>
