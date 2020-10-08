@@ -19,10 +19,11 @@ export default {
 
 <style scoped lang="scss">
 .MsgText{
-    color:red;
+    color:#41cccc;
     height: 45px;
     width: 500px;
-    // float:left;
+    float:left;
+    font-size: 20px;
 }
 .MsgBut{
   height:45px;

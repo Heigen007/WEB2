@@ -21,11 +21,11 @@ export default {
         width:300px;
         height:500px;
         overflow-y: scroll;
-        background-color: red;
+        background-color: #ffc33c;
         text-align: center;
         font-size: 30px;
     }
     .user{
-      color:blue;
+      color:#926006;
     }
 </style>
