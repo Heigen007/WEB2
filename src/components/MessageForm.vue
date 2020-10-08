@@ -1,6 +1,7 @@
 <template>
 <div class = "MessageForm">
-   MessageForm
+   <input class = "MsgText" placeholder="Введите сообщение:">
+   <img src="But.png" class = "MsgBut">
 </div>
 
 </template>
@@ -17,7 +18,14 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.MessageForm{
+.MsgText{
     color:red;
+    height: 45px;
+    width: 500px;
+    // float:left;
+}
+.MsgBut{
+  height:45px;
+  width:100px;
 }
 </style>

@@ -18,19 +18,20 @@ export default {
     click () {
       console.log('d')
       const dar = document.getElementById('s')
-
-      const user = {
-        name: dar.value
+      if (dar.value) {
+        const user = {
+          name: dar.value
+        }
+        dar.value = ''
+        fetch('http://localhost:3000/user', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+          },
+          body: JSON.stringify(user)
+        })
+        this.$emit('clickBTN')
       }
-      dar.value = ''
-      fetch('http://localhost:3000/user', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json;charset=utf-8'
-        },
-        body: JSON.stringify(user)
-      })
-      this.$emit('clickBTN')
     }
   }
 }

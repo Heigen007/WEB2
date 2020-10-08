@@ -1,6 +1,6 @@
 <template>
 <div class = "usersList">
-    <div v-for="(user, i) in users" :key="i">{{user}}</div>
+    <div class = "user" v-for="(user, i) in users" :key="i">{{user}}</div>
 </div>
 
 </template>
@@ -17,9 +17,15 @@ export default {
 
 <style>
     .usersList{
+      float:left;
         width:300px;
         height:500px;
-        overflow: scroll;
+        overflow-y: scroll;
         background-color: red;
+        text-align: center;
+        font-size: 30px;
+    }
+    .user{
+      color:blue;
     }
 </style>
