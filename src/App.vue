@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <HelloWorld v-if="showSomething" @clickBTN="click"/>
+    <HelloWorld v-if="showSomething" @clickBTN="click" :users = "UsersList"/>
     <Users :users = "UsersList" v-if="showUserList"/>
     <Messages :messages = "MessagesList" :user = "user" v-if="showMessages"/>
     <MessageForm :user = "user" v-if="showMsgForm"/>

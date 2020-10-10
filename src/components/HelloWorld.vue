@@ -4,6 +4,7 @@
   <input type="text" id = 's' class = "input" autocomplete="off" placeholder="Логин:">
   <div class = "c"><button class = "but"  @click="click">Войти в чат</button></div>
   <div class="mistake" v-if="showmi">Введите логин!</div>
+  <div class="mistake" v-if="showmiHei">Имя занято!</div>
 </div>
 
 </template>
@@ -13,18 +14,31 @@
 export default {
   name: 'HelloWorld',
   props: {
-    msg: String
+    users: Array
   },
   data: function () {
     return {
       showmi: false,
-      er: false
+      er: false,
+      showmiHei: false,
+      NameCorrect: true
     }
   },
   methods: {
     click () {
+      this.NameCorrect = true
       const dar = document.getElementById('s')
       if (dar.value) {
+        this.users.forEach(element => {
+          if (element === dar.value) {
+            this.NameCorrect = false
+          }
+        })
+      }
+      if (this.NameCorrect === false) {
+        this.showmiHei = true
+        this.showmi = false
+      } else if (dar.value) {
         const user = {
           name: dar.value
         }
@@ -40,6 +54,7 @@ export default {
         this.showmi = false
       } else {
         this.showmi = true
+        this.showmiHei = false
       }
     },
     submit () {
