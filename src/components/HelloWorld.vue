@@ -1,5 +1,5 @@
 <template>
-<div class = "reg">
+<div class = "reg" v-on:keyup.enter="submit">
   <div class = "text">Регистрация</div>
   <input type="text" id = 's' class = "input" autocomplete="off" placeholder="Логин:">
   <div class = "c"><button class = "but"  @click="click">Войти в чат</button></div>
@@ -17,12 +17,12 @@ export default {
   },
   data: function () {
     return {
-      showmi: false
+      showmi: false,
+      er: false
     }
   },
   methods: {
     click () {
-      console.log('d')
       const dar = document.getElementById('s')
       if (dar.value) {
         const user = {
@@ -41,10 +41,12 @@ export default {
       } else {
         this.showmi = true
       }
+    },
+    submit () {
+      this.click()
     }
   }
 }
-
 </script>
 
 <style scoped lang="scss">

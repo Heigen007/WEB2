@@ -1,5 +1,5 @@
 <template>
-<div class = "MessageForm">
+<div class = "MessageForm" v-on:keyup.enter="send">
    <input id = "input" class = "MsgText" placeholder="Введите сообщение:">
    <img src="../assets\Sen.svg" class = "MsgBut"  @click="click">
 </div>
@@ -29,8 +29,10 @@ export default {
           },
           body: JSON.stringify(text)
         })
-        console.log('lllllllllllllll')
       }
+    },
+    send () {
+      this.click()
     }
   }
 }

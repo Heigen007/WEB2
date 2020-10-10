@@ -4,6 +4,7 @@
     <Users :users = "UsersList" v-if="showUserList"/>
     <Messages :messages = "MessagesList" :user = "user" v-if="showMessages"/>
     <MessageForm :user = "user" v-if="showMsgForm"/>
+      <Exit v-if="showExit" @Exit="ChatExit"/>
     <!-- v-show="REG" -->
   </div>
 </template>
@@ -14,6 +15,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
 import Users from '@/components/Users.vue'
 import MessageForm from '@/components/MessageForm.vue'
 import Messages from '@/components/Messages.vue'
+import Exit from '@/components/ChatExit.vue'
 
 export default {
   name: 'Home',
@@ -21,7 +23,8 @@ export default {
     HelloWorld,
     Users,
     MessageForm,
-    Messages
+    Messages,
+    Exit
   },
   data: function () {
     return {
@@ -29,6 +32,7 @@ export default {
       showUserList: false,
       showMessages: false,
       showMsgForm: false,
+      showExit: false,
       root: 'http://localhost:3000/',
       user: '',
       message: '',
@@ -42,7 +46,18 @@ export default {
       this.showUserList = true
       this.showMessages = true
       this.showMsgForm = true
+      this.showExit = true
       this.user = a
+    },
+    ChatExit () {
+      console.log('exit')
+      fetch(`http://localhost:3000/user/${this.user}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'
+        }
+      })
+      location.reload()
     }
   },
   async beforeMount () {
@@ -52,8 +67,6 @@ export default {
         const data = await response.json()
         this.MessagesList = data.messages
         this.UsersList = data.users
-        console.log(data.users)
-        console.log(data.messages)
       }
     }, 1000)
   }
