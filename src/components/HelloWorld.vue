@@ -14,7 +14,8 @@
 export default {
   name: 'HelloWorld',
   props: {
-    users: Array
+    users: Array,
+    root: String
   },
   data: function () {
     return {
@@ -43,7 +44,7 @@ export default {
           name: dar.value
         }
         dar.value = ''
-        fetch('http://localhost:3000/user', {
+        fetch(`${this.root}user`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -73,6 +74,7 @@ export default {
     margin-top: 2%;
     border-radius: 10%;
     color: #483916;
+    outline: none;
 }
 .input:hover{
   border-color: #246eb7;
@@ -85,6 +87,7 @@ export default {
     font-size: 50px;
     margin-top: 3%;
     background-color: #ffa377;
+    outline: none;
 }
 .but:hover{
       background-color: #ffc6ab;

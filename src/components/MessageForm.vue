@@ -11,7 +11,8 @@
 export default {
   name: 'MessageForm',
   props: {
-    user: String
+    user: String,
+    root: String
   },
   methods: {
     // json-formatter
@@ -22,7 +23,7 @@ export default {
           name: this.user,
           text: dar.value
         }
-        fetch('http://localhost:3000/message', {
+        fetch(`${this.root}message`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -41,10 +42,16 @@ export default {
 <style scoped lang="scss">
 .MsgText{
     color:#41cccc;
-    height: 45px;
+    height: 48px;
     width: 550px;
     float:left;
     font-size: 20px;
+    outline: none;
+    border:none;
+}
+.MsgText:focus{
+      height: 45px;
+  border-bottom: 3px solid #47a3f3;
 }
 .MsgBut{
   height:50px;

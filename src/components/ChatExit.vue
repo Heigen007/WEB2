@@ -23,6 +23,7 @@ export default {
         background-color: #d37204;
         text-align: center;
         font-size: 30px;
+        cursor: pointer;
     }
 
 </style>

@@ -1,9 +1,9 @@
 <template>
   <div class="home">
-    <HelloWorld v-if="showSomething" @clickBTN="click" :users = "UsersList"/>
+    <HelloWorld v-if="showSomething" @clickBTN="click" :users = "UsersList" :root = "root"/>
     <Users :users = "UsersList" v-if="showUserList"/>
     <Messages :messages = "MessagesList" :user = "user" v-if="showMessages"/>
-    <MessageForm :user = "user" v-if="showMsgForm"/>
+    <MessageForm :root = "root" :user = "user" v-if="showMsgForm"/>
       <Exit v-if="showExit" @Exit="ChatExit"/>
     <!-- v-show="REG" -->
   </div>
@@ -33,7 +33,7 @@ export default {
       showMessages: false,
       showMsgForm: false,
       showExit: false,
-      root: 'http://localhost:3000/',
+      root: 'http://localhost:3000/', // api.stepchat.site
       user: '',
       message: '',
       MessagesList: null,
@@ -75,6 +75,6 @@ export default {
 
 <style>
 body{
-  background-color: #2e93f9;
+  background-color: #5580a3;
 }
 </style>
