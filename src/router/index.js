@@ -1,8 +1,8 @@
-// import Vue from 'vue'
-// import VueRouter from 'vue-router'
+import Vue from 'vue'
+import VueChatScroll from 'vue-chat-scroll'
 // import Home from '../views/Home.vue'
 
-// Vue.use(VueRouter)
+Vue.use(VueChatScroll)
 
 // const routes = [
 //   {

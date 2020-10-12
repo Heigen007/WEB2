@@ -31,6 +31,7 @@ export default {
           body: JSON.stringify(text)
         })
       }
+      dar.value = ''
     },
     send () {
       this.click()

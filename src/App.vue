@@ -2,7 +2,7 @@
   <div class="home">
     <HelloWorld v-if="showSomething" @clickBTN="click" :users = "UsersList" :root = "root"/>
     <Users :users = "UsersList" v-if="showUserList"/>
-    <Messages :messages = "MessagesList" :user = "user" v-if="showMessages"/>
+    <Messages v-chat-scroll :messages = "MessagesList" :user = "user" v-if="showMessages"/>
     <MessageForm :root = "root" :user = "user" v-if="showMsgForm"/>
       <Exit v-if="showExit" @Exit="ChatExit"/>
     <!-- v-show="REG" -->
