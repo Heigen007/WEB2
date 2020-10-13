@@ -1,10 +1,10 @@
 <template>
   <div class="home">
     <HelloWorld v-if="showSomething" @clickBTN="click" :users = "UsersList" :root = "root"/>
-    <Users :users = "UsersList" v-if="showUserList"/>
+    <Users :name = "user" :users = "UsersList" v-if="showUserList"/>
     <Messages v-chat-scroll :messages = "MessagesList" :user = "user" v-if="showMessages"/>
+    <Exit v-if="showExit" @Exit="ChatExit"/>
     <MessageForm :root = "root" :user = "user" v-if="showMsgForm"/>
-      <Exit v-if="showExit" @Exit="ChatExit"/>
     <!-- v-show="REG" -->
   </div>
 </template>

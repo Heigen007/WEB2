@@ -18,9 +18,11 @@ export default {
 <style>
     .ChatExit{
       float:left;
-        width:300px;
-        height:50px;
-        background-color: #d37204;
+        width:290px;
+        height:40px;
+        padding: 5px;
+        background-color: #002a3e;
+        color:white;
         text-align: center;
         font-size: 30px;
         cursor: pointer;

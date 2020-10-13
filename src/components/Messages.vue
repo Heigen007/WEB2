@@ -3,12 +3,12 @@
   <ul id="v-for-object" class="demo">
   <li v-for="(msg,i) in messages" :key="i">
     <div v-if="msg.name != user" class = "MsgName1">
-      <b>{{msg.name}}</b><br>
+      <b>{{msg.name}}:</b><br>
       <div class = "ra">{{msg.text}}</div>
       </div>
     <div v-else class = "MsgName2">
-      <b>{{msg.name}}</b><br>
-      <div class = "ra">{{msg.text}}:</div>
+      <b>{{msg.name}}:</b><br>
+      <div class = "ra">{{msg.text}}</div>
     </div>
     </li>
 </ul>
@@ -31,7 +31,7 @@ export default {
 <style scoped lang="scss">
 .Messages{
     width:600px;
-    height:450px;
+    height:500px;
     overflow-y: scroll;
     background-color: #ffaf76;
     font-size: 30px;
