@@ -19,9 +19,14 @@ export default {
     click () {
       const dar = document.getElementById('input')
       if (dar.value) {
+        var now = new Date()
         const text = {
           name: this.user,
-          text: dar.value
+          text: dar.value,
+          time: {
+            hour: now.getHours(),
+            minut: now.getMinutes()
+          }
         }
         fetch(`${this.root}message`, {
           method: 'POST',

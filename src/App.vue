@@ -2,7 +2,7 @@
   <div class="home">
     <HelloWorld v-if="showSomething" @clickBTN="click" :users = "UsersList" :root = "root"/>
     <Users :name = "user" :users = "UsersList" v-if="showUserList"/>
-    <Messages v-chat-scroll :messages = "MessagesList" :user = "user" v-if="showMessages"/>
+    <Messages v-chat-scroll :messages = "MessagesList" :user = "user" v-if="showMessages" :time = "Time"/>
     <Exit v-if="showExit" @Exit="ChatExit"/>
     <MessageForm :root = "root" :user = "user" v-if="showMsgForm"/>
     <!-- v-show="REG" -->
@@ -37,7 +37,8 @@ export default {
       user: '',
       message: '',
       MessagesList: null,
-      UsersList: null
+      UsersList: null,
+      Time: {}
     }
   },
   methods: {
@@ -67,6 +68,7 @@ export default {
         const data = await response.json()
         this.MessagesList = data.messages
         this.UsersList = data.users
+        this.Time = data.time
       }
     }, 1000)
   }

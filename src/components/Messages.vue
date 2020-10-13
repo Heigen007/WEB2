@@ -5,10 +5,12 @@
     <div v-if="msg.name != user" class = "MsgName1">
       <b>{{msg.name}}:</b><br>
       <div class = "ra">{{msg.text}}</div>
+      <div class = "time">{{time.hour[i]}}:{{time.minut[i]}}</div>
       </div>
     <div v-else class = "MsgName2">
       <b>{{msg.name}}:</b><br>
       <div class = "ra">{{msg.text}}</div>
+      <div class = "time">{{time.hour[i]}}:{{time.minut[i]}}</div>
     </div>
     </li>
 </ul>
@@ -22,7 +24,8 @@ export default {
   name: 'Messages',
   props: {
     messages: Array,
-    user: String
+    user: String,
+    time: Object
   }
 }
 
@@ -44,14 +47,15 @@ export default {
   margin-top:10px;
   font-size: 20px;
   word-wrap: break-word;
-  width:200px;
+  width:250px;
   border: 1px solid #8095ff;
   border-radius: 10%;
+  margin-left: -5px;
 }
 .MsgName2{
   margin-top:10px;
   font-size: 20px;
-  margin-left: 260px;
+  margin-left: 265px;
   word-wrap: break-word;
   border: 1px solid #8095ff;
   border-radius: 10%;
@@ -63,5 +67,8 @@ li{
 }
 .ra{
   margin-left: 20px;
+}
+.time{
+  margin-left: 200px;
 }
 </style>
