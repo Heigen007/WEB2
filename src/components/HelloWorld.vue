@@ -67,7 +67,7 @@ export default {
 
 <style scoped lang="scss">
 .input{
-    border: 5px solid blue;
+    border: 5px solid #ababff;
     width: 200px;
     height:50px;
     font-size: 40px;

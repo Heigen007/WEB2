@@ -29,30 +29,31 @@ export default {
 </script>
 
 <style scoped lang="scss">
+::-webkit-scrollbar { width: 5px; height: 3px;}
+::-webkit-scrollbar-track-piece { background-color: #ffffff;}
+::-webkit-scrollbar-thumb { height: 50px; background-color:#7d92f9;}
 .Messages{
     width:600px;
     height:500px;
     overflow-y: scroll;
-    background-color: #ffaf76;
+    background-color: #0d2c3e;
     font-size: 30px;
-    color:#3489d2;
+    color:#fff;
 }
 .MsgName1{
   margin-top:10px;
   font-size: 20px;
-  color:#0d4bd6;
   word-wrap: break-word;
   width:200px;
-  border: 1px solid #5580a3;
+  border: 1px solid #8095ff;
   border-radius: 10%;
 }
 .MsgName2{
   margin-top:10px;
   font-size: 20px;
-  color:#0b8fc1;
   margin-left: 260px;
   word-wrap: break-word;
-  border: 1px solid #5580a3;
+  border: 1px solid #8095ff;
   border-radius: 10%;
   width:250px;
 }

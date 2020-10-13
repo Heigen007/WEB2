@@ -24,14 +24,18 @@ export default {
 </script>
 
 <style>
+::-webkit-scrollbar { width: 5px; height: 3px;}
+::-webkit-scrollbar-track-piece { background-color: #ffffff;}
+::-webkit-scrollbar-thumb { height: 50px; background-color:#7d92f9;}
     .usersList{
       float:left;
         width:300px;
         height:500px;
         overflow-y: scroll;
-        background-color: #ffc33c;
+        background-color: #1f3b6d;
         text-align: center;
         font-size: 30px;
+        scrollbar-3dlight-color: blueviolet;
     }
     .user{
       color:#926006;
@@ -40,6 +44,6 @@ export default {
       color:white;
     }
     .s{
-      color: #002a3e;
+      color: #5da6ff;
     }
 </style>
