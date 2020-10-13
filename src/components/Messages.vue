@@ -69,6 +69,7 @@ li{
   margin-left: 20px;
 }
 .time{
-  margin-left: 200px;
+  margin-left: 210px;
+  font-size: 15px;
 }
 </style>
