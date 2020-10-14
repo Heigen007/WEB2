@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import randomstring from 'randomstring'
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
 import Users from '@/components/Users.vue'
@@ -37,8 +38,27 @@ export default {
       user: '',
       message: '',
       MessagesList: null,
-      UsersList: null,
-      Time: {}
+      UsersList: [0],
+      Time: {},
+      avatarList: null
+    }
+  },
+  computed: {
+    totalUsers () {
+      return this.UsersList.length
+    },
+    users () {
+      return this.UsersList.map((user) => {
+        return {
+          name: user,
+          avatar: `https://robohash.org/${randomstring.generate(7)}`
+        }
+      })
+    }
+  },
+  watch: {
+    totalUsers: function (newVal, oldVal) {
+      console.log(newVal)
     }
   },
   methods: {
