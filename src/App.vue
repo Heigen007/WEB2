@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import randomstring from 'randomstring'
+// import randomstring from 'randomstring'
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
 import Users from '@/components/Users.vue'
