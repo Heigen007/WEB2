@@ -43,24 +43,8 @@ export default {
       avatarList: null
     }
   },
-  computed: {
-    totalUsers () {
-      return this.UsersList.length
-    },
-    users () {
-      return this.UsersList.map((user) => {
-        return {
-          name: user,
-          avatar: `https://robohash.org/${randomstring.generate(7)}`
-        }
-      })
-    }
-  },
-  watch: {
-    totalUsers: function (newVal, oldVal) {
-      console.log(newVal)
-    }
-  },
+  computed: {},
+  watch: {},
   methods: {
     click (a) {
       this.showSomething = false
