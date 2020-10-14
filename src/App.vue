@@ -65,10 +65,17 @@ export default {
     setInterval(async () => {
       const response = await fetch(this.root)
       if (response.ok) {
+        var now = new Date()
+        const TimeChange = now.getHours() - now.getUTCHours()
         const data = await response.json()
         this.MessagesList = data.messages
         this.UsersList = data.users
         this.Time = data.time
+        let counter = 0
+        this.Time.hour.forEach(element => {
+          this.Time.hour[counter] = this.Time.hour[counter] + TimeChange
+          counter++
+        })
       }
     }, 1000)
   }

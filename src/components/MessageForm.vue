@@ -24,8 +24,8 @@ export default {
           name: this.user,
           text: dar.value,
           time: {
-            hour: now.getHours(),
-            minut: now.getMinutes()
+            hour: now.getUTCHours(),
+            minut: now.getUTCMinutes()
           }
         }
         fetch(`${this.root}message`, {
