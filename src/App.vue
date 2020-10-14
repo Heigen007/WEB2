@@ -38,9 +38,9 @@ export default {
       user: '',
       message: '',
       MessagesList: null,
-      UsersList: [],
+      UsersList: [0],
       Time: {},
-      avatarList: []
+      avatarList: null
     }
   },
   computed: {
@@ -48,30 +48,17 @@ export default {
       return this.UsersList.length
     },
     users () {
-      const users = []
-      for (let i = 0; i < this.totalUsers; i++) {
-        users.push({
-          name: this.UsersList[i],
-          avatar: this.avatarList[i]
-        })
-      }
-      console.log(users.name[0])
-      return users
+      return this.UsersList.map((user) => {
+        return {
+          name: user,
+          avatar: `https://robohash.org/${randomstring.generate(7)}`
+        }
+      })
     }
   },
   watch: {
-    totalUsers (newVal, oldVal) {
-      if (oldVal === 0) {
-        for (let i = 0; i < newVal; i++) {
-          this.avatarsList.push('https://robohash.org/' + randomstring.generate(7))
-        }
-      }
-      // TODO: Доделать!
-      if (newVal > oldVal) {
-        // +++
-      } else {
-        // ---
-      }
+    totalUsers: function (newVal, oldVal) {
+      console.log(newVal)
     }
   },
   methods: {
