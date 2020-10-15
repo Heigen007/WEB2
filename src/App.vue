@@ -38,7 +38,7 @@ export default {
       user: '',
       message: '',
       MessagesList: null,
-      UsersList: [0],
+      UsersList: [],
       Time: {},
       avatarList: null
     }
