@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <HelloWorld v-if="showSomething" @clickBTN="click" :users = "UsersList" :root = "root"/>
-    <Users :name = "user" :users = "UsersList" v-if="showUserList"/>
+    <Users :name = "user" :users = "users" v-if="showUserList"/>
     <Messages v-chat-scroll :messages = "MessagesList" :user = "user" v-if="showMessages" :time = "Time"/>
     <Exit v-if="showExit" @Exit="ChatExit"/>
     <MessageForm :root = "root" :user = "user" v-if="showMsgForm"/>
@@ -10,7 +10,7 @@
 </template>
 
 <script>
-// import randomstring from 'randomstring'
+import randomstring from 'randomstring'
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
 import Users from '@/components/Users.vue'
@@ -37,14 +37,42 @@ export default {
       root: 'http://localhost:3000/', // api.stepchat.site
       user: '',
       message: '',
-      MessagesList: null,
-      UsersList: [0],
+      MessagesList: [],
+      UsersList: [],
       Time: {},
-      avatarList: null
+      avatarList: []
     }
   },
-  computed: {},
-  watch: {},
+  computed: {
+    totalUsers () {
+      return this.UsersList.length
+    },
+    users () {
+      const users = []
+      for (let i = 0; i < this.totalUsers; i++) {
+        users.push({
+          name: this.UsersList[i],
+          avatar: this.avatarList[i]
+        })
+      }
+
+      return users
+    }
+  },
+  watch: {
+    totalUsers (newVal, oldVal) {
+      if (oldVal === 0) {
+        for (let i = 0; i < newVal; i++) {
+          this.avatarList.push('https://robohash.org/' + randomstring.generate(7))
+        }
+      }
+      if (newVal > oldVal) {
+        this.avatarList.push('https://robohash.org/' + randomstring.generate(7))
+      } else {
+        this.avatarList.pop()
+      }
+    }
+  },
   methods: {
     click (a) {
       this.showSomething = false

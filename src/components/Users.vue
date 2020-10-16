@@ -1,11 +1,14 @@
 <template>
 <div class = "usersList">
     <div class = "user" v-for="(user, i) in users" :key="i">
-        <div v-if="name==user" class = "s">
-          <b>{{user}}</b>
+        <div class="avatar">
+        <img :src="user.avatar" />
+      </div>
+        <div v-if="name==user.name" class = "s">
+          <b>{{user.name}}</b>
         </div>
         <div v-else class = "d">
-          {{user}}
+          {{user.name}}
         </div>
       </div>
 </div>
@@ -23,7 +26,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 ::-webkit-scrollbar { width: 5px; height: 3px;}
 ::-webkit-scrollbar-track-piece { background-color: #ffffff;}
 ::-webkit-scrollbar-thumb { height: 50px; background-color:#7d92f9;}
@@ -38,12 +41,27 @@ export default {
         scrollbar-3dlight-color: blueviolet;
     }
     .user{
-      color:#926006;
-    }
-    .d{
-      color:white;
-    }
-    .s{
-      color: #5da6ff;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   align-items: center;
+   margin-bottom: 2px;
+      .d{
+        color:white;
+      }
+      .s{
+        color: #5da6ff;
+      }
+      .avatar {
+      box-sizing: border-box;
+      border: 2px solid #53A2BD;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 2px;
+      width: 70px;
+      }
+      .avatar img{
+        width: 60px;
+      }
     }
 </style>
