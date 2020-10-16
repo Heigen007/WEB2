@@ -1,7 +1,7 @@
 <template>
 <div class = "MessageForm" v-on:keyup.enter="send">
    <input id = "input" class = "MsgText" placeholder="Введите сообщение:">
-   <img src="../assets\Sen.svg" class = "MsgBut"  @click="click">
+   <img src="../assets/Sen.svg" class = "MsgBut"  @click="click">
 </div>
 
 </template>
@@ -20,12 +20,21 @@ export default {
       const dar = document.getElementById('input')
       if (dar.value) {
         var now = new Date()
+        var date = new Date(2014, 11, 31, now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds())
+        var options = {
+          minute: 'numeric',
+          second: 'numeric'
+        }
+        var options1 = {
+          minute: 'numeric'
+        }
+        console.log(date.toLocaleString('ru', options1))
         const text = {
           name: this.user,
           text: dar.value,
           time: {
             hour: now.getUTCHours(),
-            minut: now.getUTCMinutes()
+            minut: date.toLocaleString('ru', options)
           }
         }
         fetch(`${this.root}message`, {
