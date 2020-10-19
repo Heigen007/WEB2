@@ -34,12 +34,17 @@ export default {
       const dar = document.getElementById('input')
       if (dar.value) {
         var now = new Date()
+        var date = new Date(2014, 11, 31, now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds())
+        var options = {
+          minute: 'numeric',
+          second: 'numeric'
+        }
         const text = {
           name: this.user,
           text: dar.value,
           time: {
             hour: now.getUTCHours(),
-            minut: now.getUTCMinutes()
+            minut: date.toLocaleString('ru', options)
           }
         }
         fetch(`${this.root}message`, {
