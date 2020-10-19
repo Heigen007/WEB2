@@ -1,7 +1,7 @@
 <template>
 <div class = "MessageForm" v-on:keyup.enter="send">
    <input id = "input" class = "MsgText" placeholder="Введите сообщение:">
-   <img src="../assets\Sen.svg" class = "MsgBut"  @click="click">
+   <img :src="require(`../assets/Sen.svg`)" class = "MsgBut"  @click="click">
    <div id = "Touch" class = "down" >
      <img src="../assets\down.svg" class = "DownBut" @click="Downclick">
      <Stikers v-if="Hi" class = "stik"/>
