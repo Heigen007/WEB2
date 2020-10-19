@@ -19,8 +19,31 @@ export default {
   name: 'Stickers',
   methods: {
     click (i) {
-      console.log(i)
+      var date = new Date()
+      var options = {
+        minute: 'numeric',
+        second: 'numeric'
+      }
+      const text = {
+        name: `${this.user}stick`,
+        text: `${i}`,
+        time: {
+          hour: date.getUTCHours(),
+          minut: date.toLocaleString('ru', options)
+        }
+      }
+      fetch(`${this.root}message`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(text)
+      })
     }
+  },
+  props: {
+    root: String,
+    user: String
   }
 }
 </script>

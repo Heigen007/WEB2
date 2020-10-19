@@ -39,6 +39,7 @@ export default {
     }
     .user{
       color:#926006;
+      overflow: hidden;
     }
     .d{
       color:white;

@@ -3,8 +3,8 @@
    <input id = "input" class = "MsgText" placeholder="Введите сообщение:">
    <img :src="require(`../assets/Sen.svg`)" class = "MsgBut"  @click="click">
    <div id = "Touch" class = "down" >
-     <img src="../assets\down.svg" class = "DownBut" @click="Downclick">
-     <Stikers v-if="Hi" class = "stik"/>
+     <img src="../assets/down.svg" class = "DownBut" @click="Downclick">
+     <Stikers v-if="Hi" class = "stik" :root="root" :user="user"/>
    </div>
 </div>
 

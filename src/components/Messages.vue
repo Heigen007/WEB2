@@ -2,15 +2,29 @@
 <div class = "Messages" id = 'scroll'>
   <ul id="v-for-object" class="demo">
   <li v-for="(msg,i) in messages" :key="i">
-    <div v-if="msg.name != user" class = "MsgName1">
-      <b>{{msg.name}}:</b><br>
-      <div class = "ra">{{msg.text}}</div>
-      <div class = "time">{{time.hour[i]}}:{{time.minut[i]}}</div>
+    <div v-if="msg.name.includes(user)" class = "MsgName2">
+      <div v-if="msg.name.includes('stick')" class="stick">
+        <b>{{msg.name.slice(0, msg.name.length - 5)}}:</b><br>
+        <img :src="require(`../assets/svg/${msg.text}.svg`)">
+        <div class = "time">{{time.hour[i]}}:{{time.minut[i]}}</div>
       </div>
-    <div v-else class = "MsgName2">
-      <b>{{msg.name}}:</b><br>
-      <div class = "ra">{{msg.text}}</div>
-      <div class = "time">{{time.hour[i]}}:{{time.minut[i]}}</div>
+      <div v-else>
+        <b>{{msg.name}}:</b><br>
+        <div class = "ra">{{msg.text}}</div>
+        <div class = "time">{{time.hour[i]}}:{{time.minut[i]}}</div>
+      </div>
+    </div>
+      <div  v-else class = "MsgName1">
+        <div v-if="msg.name.includes('stick')" class="stick">
+          <b>{{msg.name.slice(0, msg.name.length - 5)}}:</b><br>
+          <img :src="require(`../assets/svg/${msg.text}.svg`)">
+          <div class = "time">{{time.hour[i]}}:{{time.minut[i]}}</div>
+        </div>
+        <div v-else>
+          <b>{{msg.name}}:</b><br>
+          <div class = "ra">{{msg.text}}</div>
+          <div class = "time">{{time.hour[i]}}:{{time.minut[i]}}</div>
+        </div>
     </div>
     </li>
 </ul>
@@ -51,6 +65,15 @@ export default {
   border: 1px solid #8095ff;
   border-radius: 10%;
   margin-left: -5px;
+}
+img{
+  width: 40px;
+}
+.stick{
+  img{
+    margin-top: 10px;
+    margin-left: 110px;
+  }
 }
 .MsgName2{
   margin-top:10px;
