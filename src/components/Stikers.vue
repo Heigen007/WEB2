@@ -25,7 +25,7 @@ export default {
         second: 'numeric'
       }
       const text = {
-        name: `${this.user}stick`,
+        name: `${this.user}:stick:`,
         text: `${i}`,
         time: {
           hour: date.getUTCHours(),

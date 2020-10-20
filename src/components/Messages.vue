@@ -2,9 +2,9 @@
 <div class = "Messages" id = 'scroll'>
   <ul id="v-for-object" class="demo">
   <li v-for="(msg,i) in messages" :key="i">
-    <div v-if="msg.name.includes(user)" class = "MsgName2">
-      <div v-if="msg.name.includes('stick')" class="stick">
-        <b>{{msg.name.slice(0, msg.name.length - 5)}}:</b><br>
+    <div v-if="msg.name == user || msg.name.includes(':stick:') && msg.name.slice(0, msg.name.length - 7) == user" class = "MsgName2">
+      <div v-if="msg.name.includes(':stick:')" class="stick">
+        <b>{{msg.name.slice(0, msg.name.length - 7)}}:</b><br>
         <img :src="require(`../assets/svg/${msg.text}.svg`)">
         <div class = "time">{{time.hour[i]}}:{{time.minut[i]}}</div>
       </div>
@@ -14,9 +14,9 @@
         <div class = "time">{{time.hour[i]}}:{{time.minut[i]}}</div>
       </div>
     </div>
-      <div  v-else class = "MsgName1">
+      <div v-else class = "MsgName1">
         <div v-if="msg.name.includes('stick')" class="stick">
-          <b>{{msg.name.slice(0, msg.name.length - 5)}}:</b><br>
+          <b>{{msg.name.slice(0, msg.name.length - 7)}}:</b><br>
           <img :src="require(`../assets/svg/${msg.text}.svg`)">
           <div class = "time">{{time.hour[i]}}:{{time.minut[i]}}</div>
         </div>
