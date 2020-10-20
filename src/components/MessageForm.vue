@@ -62,11 +62,11 @@ export default {
     },
     Downclick () {
       const h = document.getElementById('Touch')
-      if (h.style.height === '240px') {
+      if (h.style.height === '200px') {
         h.style.height = '20px'
         this.Hi = false
       } else {
-        h.style.height = '240px'
+        h.style.height = '200px'
         this.Hi = true
       }
     }
