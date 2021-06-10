@@ -1,4 +1,5 @@
-# web
+# Online Chat
+Chat, that I made on Js course
 
 ## Project setup
 ```
